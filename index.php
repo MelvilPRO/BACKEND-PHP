@@ -57,5 +57,61 @@
         {
             echo "<li>".$i."</li>";
         }
+
+        $produits = ["pommes", "poires"];
+        foreach($produits as $value)
+        {
+            echo "<li>".$value."</li>";
+        }
     ?>
 </ul>
+
+<!-- A partir d'un tableau de tableau, afficher un tableau avec les valeurs imbriquées -->
+<table border="1">
+    <?php
+        $listes = [
+            [1, 2, 3],
+            [4, 5, 6]
+        ];
+
+        foreach ($listes as $listeImbriquee)
+        {
+            echo "<tr>"; 
+            foreach($listeImbriquee as $valeurInterne)
+            {
+                echo "<td>".$valeurInterne."</td>";
+            }
+            echo "</tr>";
+        }
+    ?>
+</table>
+
+<!--  Fruit - Prix/Kg - Stock -->
+<table border="1">
+    <?php
+        $listeObjets = [
+            [
+                "fruit" => "pomme",
+                "prix" => 7,
+                "stock" => 100,
+            ],
+            [
+                "fruit" => "poire",
+                "prix" => 90,
+                "stock" => 2,
+            ]
+        ];
+
+        // description de ce que l'on stock (titre du tableau)
+        echo "<td>fruit</td><td>prix</td><td>stock</td>";
+        foreach ($listeObjets as $objetFruitActuel)
+        {
+            echo "<tr>";
+            foreach($objetFruitActuel as $key => $value)
+            {
+                echo "<td>".$value."</td>";
+            }
+            echo "</tr>";
+        }
+    ?>
+</table>
