@@ -49,3 +49,13 @@
         echo "<br/>";
     }
 ?>
+
+<!-- C'est ici que PHP commence a être utile, on peut automatiser des tâches répétitives -->
+<ul>
+    <?php
+        for ($i = 0; $i < 100; $i++)
+        {
+            echo "<li>".$i."</li>";
+        }
+    ?>
+</ul>
