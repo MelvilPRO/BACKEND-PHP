@@ -67,43 +67,62 @@
 </ul>
 
 <!-- A partir d'un tableau de tableau, afficher un tableau avec les valeurs imbriquées -->
-<table border="1">
-    <?php
-        $listes = [
-            [1, 2, 3],
-            [4, 5, 6]
-        ];
+<?php
+    $listes = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ];
 
-        foreach ($listes as $listeImbriquee)
+    echo '<table border="1">';
+    foreach ($listes as $listeImbriquee)
+    {
+        echo "<tr>"; 
+        foreach($listeImbriquee as $valeurInterne)
         {
-            echo "<tr>"; 
-            foreach($listeImbriquee as $valeurInterne)
-            {
-                echo "<td>".$valeurInterne."</td>";
-            }
-            echo "</tr>";
+            echo "<td>".$valeurInterne."</td>";
         }
-    ?>
-</table>
+        echo "</tr>";
+    }
+    echo "</table>";
+?>
 
 <!--  Fruit - Prix/Kg - Stock -->
-<table border="1">
-    <?php
-        $listeObjets = [
-            [
-                "fruit" => "pomme",
-                "prix" => 7,
-                "stock" => 100,
-            ],
-            [
-                "fruit" => "poire",
-                "prix" => 90,
-                "stock" => 2,
-            ]
-        ];
+<?php
+    $listeObjets = [
+        [
+            "fruit" => "pomme",
+            "prix" => 7,
+            "stock" => 100,
+            "kg" => 0.50,
+        ],
+        [
+            "fruit" => "poire",
+            "prix" => 90,
+            "stock" => 2,
+            "kg" => 0.60,
+        ]
+    ];
 
-        // description de ce que l'on stock (titre du tableau)
-        echo "<td>fruit</td><td>prix</td><td>stock</td>";
+    $nombreObjets = 0;
+    foreach($listeObjets as $objetFruitActuel)
+    {
+        $nombreObjets = $nombreObjets + 1;
+    }
+
+    /* Créer un tableau si le tableau contient des éléments */
+    if ($nombreObjets > 0)
+    {
+        echo '<table border="1">';
+        /* On écrit chaque clés aux entêtes du tableau */
+        foreach($listeObjets as $objetFruitActuel)
+        {
+            foreach($objetFruitActuel as $key => $value)
+            {
+                echo "<th>".$key."</th>";
+            }
+            break;
+        }
+        /* On écrit chaque valeurs dans de nouvelles lignes */
         foreach ($listeObjets as $objetFruitActuel)
         {
             echo "<tr>";
@@ -113,5 +132,6 @@
             }
             echo "</tr>";
         }
-    ?>
-</table>
+        echo "</table>";
+    }
+?>
